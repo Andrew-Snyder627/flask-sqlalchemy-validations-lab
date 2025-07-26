@@ -2,15 +2,15 @@
 
 ## Scenario
 
-You’ve been brought in as a junior developer to help maintain a blog platform 
-for a publishing company. The editorial team recently complained that the system 
-is accepting poorly formatted data: posts with missing content, authors with 
-duplicate entries, and even spammy or incomplete titles. Your job is to 
+You’ve been brought in as a junior developer to help maintain a blog platform
+for a publishing company. The editorial team recently complained that the system
+is accepting poorly formatted data: posts with missing content, authors with
+duplicate entries, and even spammy or incomplete titles. Your job is to
 strengthen the backend validation layer so only clean, accurate, and editorial-
 ready data is stored in the database.
 
-To accomplish this, you’ll add attribute-level validations directly to your 
-SQLAlchemy models using Python property decorators and `@validates()` methods. 
+To accomplish this, you’ll add attribute-level validations directly to your
+SQLAlchemy models using Python property decorators and `@validates()` methods.
 You’ll enforce field constraints such as uniqueness, length, and conditional logic,
 all of which align with typical business rules you'd encounter in production.
 
@@ -45,33 +45,34 @@ $ python seed.py
 
 Currently, the application lacks basic validation. The following issues exist:
 
-* `Authors` can be created with no name or duplicate names.
-* `Posts` may have:
-  * Empty or short content,
-  * Overly long or missing summaries,
-  * Incorrect categories,
-  * Non-descriptive or generic titles.
+- `Authors` can be created with no name or duplicate names.
+- `Posts` may have:
+  - Empty or short content,
+  - Overly long or missing summaries,
+  - Incorrect categories,
+  - Non-descriptive or generic titles.
 
-Because these rules are not enforced at the model level, invalid data can be inserted 
+Because these rules are not enforced at the model level, invalid data can be inserted
 either manually or via a broken front-end form.
 
-Without these constraints, the database risks filling up with junk or misleading data, 
-and the application loses credibility with users and internal teams. Your task is to 
+Without these constraints, the database risks filling up with junk or misleading data,
+and the application loses credibility with users and internal teams. Your task is to
 ensure all `Author` and `Post` records comply with strict rules before being persisted.
 
 ### Task 2: Determine the Design
 
 You'll work on adding validators to both the Author and Post models.
 
-* Author
-  * name: required and no duplicates
-  * phone numbers: exactly ten digits
+- Author
 
-* Post 
-  * content: 250 character minimum
-  * summary: 250 characters maximum
-  * category: `Fiction` or `Non-Fiction` only
-  * title: must contain "Won't Believe", "Secret", "Top", and/or "Guess"
+  - name: required and no duplicates
+  - phone numbers: exactly ten digits
+
+- Post
+  - content: 250 character minimum
+  - summary: 250 characters maximum
+  - category: `Fiction` or `Non-Fiction` only
+  - title: must contain "Won't Believe", "Secret", "Top", and/or "Guess"
 
 ### Task 3: Develop, Test, and Refine the Code
 
@@ -101,7 +102,7 @@ messages to complete your work in the `server/` folder.
 
 #### Step 3: Commit and Push Git History
 
-* Commit and push your code:
+- Commit and push your code:
 
 ```bash
 git add .
@@ -109,17 +110,18 @@ git commit -m "final solution"
 git push
 ```
 
-* If you created a separate feature branch, remember to open a PR on main and merge.
+- If you created a separate feature branch, remember to open a PR on main and merge.
 
 ### Task 4: Document and Maintain
 
 Best Practice documentation steps:
-* Add comments to the code to explain purpose and logic, clarifying intent and functionality of your code to other developers.
-* Update README text to reflect the functionality of the application following https://makeareadme.com. 
-  * Add screenshot of completed work included in Markdown in README.
-* Delete any stale branches on GitHub
-* Remove unnecessary/commented out code
-* If needed, update git ignore to remove sensitive data
+
+- Add comments to the code to explain purpose and logic, clarifying intent and functionality of your code to other developers.
+- Update README text to reflect the functionality of the application following https://makeareadme.com.
+  - Add screenshot of completed work included in Markdown in README.
+- Delete any stale branches on GitHub
+- Remove unnecessary/commented out code
+- If needed, update git ignore to remove sensitive data
 
 ---
 
@@ -132,3 +134,7 @@ Before you submit your solution, you need to save your progress with git.
 3. Push your commits to GitHub by executing `git push origin main`.
 
 CodeGrade will grade your lab using the same tests as are provided in the `testing/` directory.
+
+## Results
+
+All tests passing after implementing validations across Author and Post models. Validating Author name & phone number, and Post content, summary, category, & title.
